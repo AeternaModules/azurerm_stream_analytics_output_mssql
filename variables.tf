@@ -23,9 +23,9 @@ EOT
     server                    = string
     stream_analytics_job_name = string
     table                     = string
-    authentication_mode       = optional(string, "ConnectionString")
-    max_batch_count           = optional(number, 10000)
-    max_writer_count          = optional(number, 1)
+    authentication_mode       = optional(string) # Default: "ConnectionString"
+    max_batch_count           = optional(number) # Default: 10000
+    max_writer_count          = optional(number) # Default: 1
     password                  = optional(string)
     user                      = optional(string)
   }))
