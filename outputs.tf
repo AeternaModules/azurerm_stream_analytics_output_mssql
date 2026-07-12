@@ -1,3 +1,7 @@
+output "stream_analytics_output_mssqls_id" {
+  description = "Map of id values across all stream_analytics_output_mssqls, keyed the same as var.stream_analytics_output_mssqls"
+  value       = { for k, v in azurerm_stream_analytics_output_mssql.stream_analytics_output_mssqls : k => v.id }
+}
 output "stream_analytics_output_mssqls_authentication_mode" {
   description = "Map of authentication_mode values across all stream_analytics_output_mssqls, keyed the same as var.stream_analytics_output_mssqls"
   value       = { for k, v in azurerm_stream_analytics_output_mssql.stream_analytics_output_mssqls : k => v.authentication_mode }
