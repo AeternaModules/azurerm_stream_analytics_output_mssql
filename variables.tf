@@ -13,21 +13,25 @@ Optional:
     - max_batch_count
     - max_writer_count
     - password
+    - password_key_vault_id (alternative to password - read from Key Vault instead)
+    - password_key_vault_secret_name (alternative to password - read from Key Vault instead)
     - user
 EOT
 
   type = map(object({
-    database                  = string
-    name                      = string
-    resource_group_name       = string
-    server                    = string
-    stream_analytics_job_name = string
-    table                     = string
-    authentication_mode       = optional(string) # Default: "ConnectionString"
-    max_batch_count           = optional(number) # Default: 10000
-    max_writer_count          = optional(number) # Default: 1
-    password                  = optional(string)
-    user                      = optional(string)
+    database                       = string
+    name                           = string
+    resource_group_name            = string
+    server                         = string
+    stream_analytics_job_name      = string
+    table                          = string
+    authentication_mode            = optional(string) # Default: "ConnectionString"
+    max_batch_count                = optional(number) # Default: 10000
+    max_writer_count               = optional(number) # Default: 1
+    password                       = optional(string)
+    password_key_vault_id          = optional(string)
+    password_key_vault_secret_name = optional(string)
+    user                           = optional(string)
   }))
   validation {
     condition = alltrue([
